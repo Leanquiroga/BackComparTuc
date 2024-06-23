@@ -2,27 +2,27 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const navIcons = [
-  { src: '/assets/icons/search.svg', alt: 'search' },
   { src: '/assets/icons/black-heart.svg', alt: 'heart' },
-  { src: '/assets/icons/user.svg', alt: 'user' },
+  { src: '/assets/icons/cart.svg', alt: 'cart' },
 ]
 
 const Navbar = () => {
   return (
     <header className="w-full">
-      <nav className="nav">
+      <nav className="flex justify-between items-center p-4">
         <Link href="/" className="flex items-center gap-1">
-          <Image 
-            src="/assets/icons/logo.svg"
-            width={27}
-            height={27}
-            alt="logo"
-          />
 
           <p className="nav-logo">
-            Price<span className='text-primary'>Wise</span>
+            Compar<span className='text-primary'>Tuc</span>
           </p>
         </Link>
+
+        <div className="flex items-center gap-8">
+          <Link href="/" className="nav-link">Inicio</Link>
+          <Link href="/nosotros" className="nav-link">Nosotros</Link>
+          <Link href="/iniciar-sesion" className="nav-link">Inicio Sesión</Link>
+          <Link href="/registrarse" className="nav-link">Registrarse</Link>
+        </div>
 
         <div className="flex items-center gap-5">
           {navIcons.map((icon) => (

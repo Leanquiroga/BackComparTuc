@@ -54,7 +54,7 @@ const Searchbar = () => {
         type="text"
         value={searchPrompt}
         onChange={(e) => setSearchPrompt(e.target.value)}
-        placeholder="Enter product link"
+        placeholder="Ingresa aqui tu URL"
         className="searchbar-input"
       />
 
@@ -63,7 +63,7 @@ const Searchbar = () => {
         className="searchbar-btn"
         disabled={searchPrompt === ''}
       >
-        {isLoading ? 'Searching...' : 'Search'}
+        {isLoading ? 'Buscando...' : 'Buscar'}
       </button>
     </form>
   )

@@ -22,13 +22,13 @@ const ProductDetails = async ({ params: { id } }: Props) => {
   return (
     <div className="product-container">
       <div className="flex gap-28 xl:flex-row flex-col">
-        <div className="product-image">
+        <div className="product-image w-full h-80 relative overflow-hidden border-2 border-black flex justify-center items-center">
           <Image 
-            src={product.image}
-            alt={product.title}
-            width={580}
-            height={400}
-            className="mx-auto"
+          src={product.image}
+          alt={product.title}
+          layout="fill"
+          objectFit="contain" // Cambiado a "contain" para mantener la relación de aspecto sin llenar el contenedor
+          className="mx-auto"
           />
         </div>
 
@@ -44,7 +44,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
                 target="_blank"
                 className="text-base text-black opacity-50"
               >
-                Visit Product
+                Visita el producto
               </Link>
             </div>
 
@@ -120,8 +120,8 @@ const ProductDetails = async ({ params: { id } }: Props) => {
               </div>
 
               <p className="text-sm text-black opacity-50">
-                <span className="text-primary-green font-semibold">93% </span> of
-                buyers have recommeded this.
+                <span className="text-primary-green font-semibold">93% </span> de
+                los compradores recomiendan esto.
               </p>
             </div>
           </div>
@@ -129,36 +129,35 @@ const ProductDetails = async ({ params: { id } }: Props) => {
           <div className="my-7 flex flex-col gap-5">
             <div className="flex gap-5 flex-wrap">
               <PriceInfoCard 
-                title="Current Price"
+                title="Precio Actual"
                 iconSrc="/assets/icons/price-tag.svg"
                 value={`${product.currency} ${formatNumber(product.currentPrice)}`}
               />
               <PriceInfoCard 
-                title="Average Price"
+                title="Precio Promedio"
                 iconSrc="/assets/icons/chart.svg"
                 value={`${product.currency} ${formatNumber(product.averagePrice)}`}
               />
               <PriceInfoCard 
-                title="Highest Price"
+                title="Precio Más Alto"
                 iconSrc="/assets/icons/arrow-up.svg"
                 value={`${product.currency} ${formatNumber(product.highestPrice)}`}
               />
               <PriceInfoCard 
-                title="Lowest Price"
+                title="Precio Más Bajo"
                 iconSrc="/assets/icons/arrow-down.svg"
                 value={`${product.currency} ${formatNumber(product.lowestPrice)}`}
               />
             </div>
           </div>
 
-          <Modal productId={id} />
         </div>
       </div>
 
       <div className="flex flex-col gap-16">
         <div className="flex flex-col gap-5">
           <h3 className="text-2xl text-secondary font-semibold">
-            Product Description
+            Descripcion del producto
           </h3>
 
           <div className="flex flex-col gap-4">
@@ -175,14 +174,14 @@ const ProductDetails = async ({ params: { id } }: Props) => {
           />
 
           <Link href="/" className="text-base text-white">
-            Buy Now
+            Comprar Ahora
           </Link>
         </button>
       </div>
 
       {similarProducts && similarProducts?.length > 0 && (
         <div className="py-14 flex flex-col gap-2 w-full">
-          <p className="section-text">Similar Products</p>
+          <p className="section-text">Productos Similares</p>
 
           <div className="flex flex-wrap gap-10 mt-7 w-full">
             {similarProducts.map((product) => (
