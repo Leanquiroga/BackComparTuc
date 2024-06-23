@@ -3,7 +3,8 @@ import Searchbar from "@/components/Searchbar"
 import Image from "next/image"
 import { getAllProducts } from "@/lib/actions"
 import ProductCard from "@/components/ProductCard"
-import Chatbot from "@/components/Chatbot"
+import VoiceflowBot from "@/components/Chabot"
+
 
 const Home = async () => {
   const allProducts = await getAllProducts();
@@ -39,7 +40,8 @@ const Home = async () => {
         </div>
       </section>
 
-      <Chatbot />
+      <VoiceflowBot/>
+
 
       <section className="trending-section">
         <h2 className="section-text">Tendiencias</h2>
